@@ -15,6 +15,7 @@ public protocol Abbreviating {
 extension Int: Abbreviating {}
 extension Double: Abbreviating {}
 extension NSNumber: Abbreviating {}
+extension UInt64: Abbreviating {}
 
 // MARK: - Implementation
 public extension Abbreviating {
@@ -42,7 +43,7 @@ public extension Abbreviating {
      */
     func abbreviated() -> String {
         
-        let metricPrefixes = ["K","M","G","T","P","E","Z","Y"]
+        let metricPrefixes = ["KB","MB","GB","TB","PB","EB","ZB","YB"]
         
         guard let input: NSNumber = self as? NSNumber else { return  "NaN" }
         let number = input.doubleValue
